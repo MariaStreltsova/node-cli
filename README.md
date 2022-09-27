@@ -3,7 +3,7 @@ CLI приложение
 1. # Получаем и выводим весь список контактов в виде таблицы (console.table)
    node index.js --action list
 
-https://prnt.sc/Qiq38z387WTC
+https://monosnap.com/file/qnjqUcXZhLZPmLqId5aKKiA73rx7jO
 
 2. # Получаем контакт по id
 

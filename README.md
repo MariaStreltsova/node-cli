@@ -1,17 +1,25 @@
 CLI приложение
 
-1. # Получаем и выводим весь список контактов в виде таблицы (console.table)
-   node index.js --action list
+# Получаем и выводим весь список контактов в виде таблицы (console.table)
+
+node index.js --action list
 
 https://monosnap.com/file/qnjqUcXZhLZPmLqId5aKKiA73rx7jO
 
-2. # Получаем контакт по id
+# Получаем контакт по id
 
-   node index.js --action get --id 5
+node index.js --action get --id 5
 
-3. # Добавялем контакт
+https://monosnap.com/file/AjVcEPijHfsVrOchuxBDsXhyaa8VGd
 
-   node index.js --action add --name Mango --email mango@gmail.com --phone 322-22-22
+# Добавялем контакт
 
-4. # Удаляем контакт
-   node index.js --action remove --id=3
+node index.js --action add --name Mango --email mango@gmail.com --phone 322-22-22
+
+https://monosnap.com/file/WhWD0Ns4yB7tQOPnY6WQMVjboiArZI
+
+# Удаляем контакт
+
+node index.js --action remove --id=3
+
+https://monosnap.com/file/1jW2WWthagljwEnxF9KnPG7qHWN9FH

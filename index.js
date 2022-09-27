@@ -1,5 +1,5 @@
-const argv = require("yargs").argv;
 const operations = require("./contacts");
+const argv = require("yargs").argv;
 
 const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
@@ -23,6 +23,9 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
 
     case "remove":
       const removedContact = await operations.removeContact(id);
+      if (!removedContact) {
+        throw new Error(`Contact with id:${id} not found`);
+      }
       console.log(removedContact);
       break;
 

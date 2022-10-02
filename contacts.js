@@ -8,37 +8,53 @@ const updateContacts = async (allContacts) =>
   await fs.writeFile(contsctsPath, JSON.stringify(allContacts, null, 2));
 
 async function listContacts() {
-  const data = await fs.readFile(contsctsPath);
-  const contacts = data ? JSON.parse(data) : [];
-  return contacts;
+  try {
+    const data = await fs.readFile(contsctsPath);
+    const contacts = data ? JSON.parse(data) : [];
+    return contacts;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 async function getContactById(contactId) {
-  const allContacts = await listContacts();
-  const id = String(contactId);
-  const result = allContacts.find((item) => item.id === id);
-  return result || null;
+  try {
+    const allContacts = await listContacts();
+    const id = String(contactId);
+    const result = allContacts.find((item) => item.id === id);
+    return result || null;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 async function removeContact(contactId) {
-  const allContacts = await listContacts();
-  const id = String(contactId);
-  const index = allContacts.findIndex((item) => item.id === id);
-  if (index === -1) {
-    return null;
-  }
+  try {
+    const allContacts = await listContacts();
+    const id = String(contactId);
+    const index = allContacts.findIndex((item) => item.id === id);
+    if (index === -1) {
+      return null;
+    }
 
-  const [result] = allContacts.splice(index, 1);
-  await updateContacts(allContacts);
-  return result;
+    const [result] = allContacts.splice(index, 1);
+    await updateContacts(allContacts);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 async function addContact(name, email, phone) {
-  const allContacts = await listContacts();
-  const newContact = { id: v4(), name, email, phone };
-  allContacts.push(newContact);
-  await updateContacts(allContacts);
-  return newContact;
+  try {
+    const allContacts = await listContacts();
+    const newContact = { id: v4(), name, email, phone };
+    allContacts.push(newContact);
+    await updateContacts(allContacts);
+    return newContact;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 module.exports = {
